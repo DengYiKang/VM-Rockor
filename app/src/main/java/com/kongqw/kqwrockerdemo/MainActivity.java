@@ -16,6 +16,7 @@ import com.kongqw.rockerlibrary.view.RockerView;
 
 public class MainActivity extends Activity implements MediaPlayer.OnPreparedListener, MediaPlayer.OnErrorListener, MediaPlayer.OnCompletionListener  {
 
+
     private TextView angle_log;
     private TextView diraction_log;
     private TextView length_log;
