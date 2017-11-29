@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:kongqw="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:padding="30dp">
+    <com.kongqw.kqwrockerdemo.MyVideo
+        android:id="@+id/videoView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp"
+         />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent">
+    <com.kongqw.rockerlibrary.view.RockerView
+        android:id="@+id/rockerView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+
+        kongqw:areaBackground="@mipmap/button"
+        kongqw:rockerBackground="@mipmap/rocker"
+        kongqw:rockerRadius="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="36dp"></TextView>
+
+
+    <TextView
+        android:id="@+id/angle_text"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/rockerView"
+        android:layout_alignParentLeft="true" />
+
+
+    <TextView
+        android:id="@+id/diraction_text"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_above="@id/angle_text"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/length_text"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/diraction_text"
+        android:layout_alignParentLeft="true" />
+
+</RelativeLayout>
+</RelativeLayout>
