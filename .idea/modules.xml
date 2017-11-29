@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://C:\Users\wxy\Documents\GitHub\Rocker\AndroidRocker.iml" filepath="C:\Users\wxy\Documents\GitHub\Rocker\AndroidRocker.iml" />
       <module fileurl="file://$PROJECT_DIR$/KqwRockerLibrary/KqwRockerLibrary.iml" filepath="$PROJECT_DIR$/KqwRockerLibrary/KqwRockerLibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Rocker.iml" filepath="$PROJECT_DIR$/Rocker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VM-Rockor.iml" filepath="$PROJECT_DIR$/VM-Rockor.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -20,14 +20,13 @@ public class MainActivity extends Activity implements MediaPlayer.OnPreparedList
     private TextView diraction_log;
     private TextView length_log;
     private MyVideo videoView1;
-    private String PATH_URL = "http://flashmedia.eastday.com/newdate/news/2016-11/shznews1125-19.mp4";
+    private String PATH_URL = "http://192.168.1.254:8090/?action=stream";
 
     private void initVideoView() {
         // 设置屏幕常亮
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         videoView1 = (MyVideo) findViewById(R.id.videoView1);
-        PATH_URL = "http://flashmedia.eastday.com/newdate/news/2016-11/shznews1125-19.mp4";
         videoView1.setVideoPath(PATH_URL);
         videoView1.setMediaController(new MediaController(this));
         videoView1.requestFocus();
