@@ -34,7 +34,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginBottom="36dp"></TextView>
+            android:layout_marginBottom="36dp"
+            android:textColor="#FFFFFF" />
 
 
         <TextView
@@ -42,7 +43,8 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_above="@+id/rockerView"
-            android:layout_alignParentLeft="true" />
+            android:layout_alignParentLeft="true"
+            android:textColor="#FFFFFF" />
 
 
         <TextView
@@ -50,14 +52,16 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_above="@id/angle_text"
-            android:layout_alignParentLeft="true" />
+            android:layout_alignParentLeft="true"
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/length_text"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_above="@+id/diraction_text"
-            android:layout_alignParentLeft="true" />
+            android:layout_alignParentLeft="true"
+            android:textColor="#FFFFFF" />
 
     </RelativeLayout>
 </RelativeLayout>

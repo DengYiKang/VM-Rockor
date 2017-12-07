@@ -266,6 +266,11 @@ public class RockerView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        //触摸点范围
+        if(Math.pow(Math.abs(event.getX()-mCenterPoint.x), 2) + Math.pow(Math.abs(event.getY()-mCenterPoint.y), 2)>160000){
+            moveRocker(mCenterPoint.x, mCenterPoint.y);
+            event.setLocation(mCenterPoint.x, mCenterPoint.y);
+        }
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:// 按下
                 // 回调 开始
@@ -283,7 +288,7 @@ public class RockerView extends View {
                 float upX = event.getX();
                 float upY = event.getY();
                 moveRocker(mCenterPoint.x, mCenterPoint.y);
-                Logger.i(TAG, "onTouchEvent: 抬起位置 : x = " + upX + " y = " + upY);
+                Logger.i(TAG, "c: 抬起位置 : x = " + upX + " y = " + upY);
                 break;
         }
         return true;
