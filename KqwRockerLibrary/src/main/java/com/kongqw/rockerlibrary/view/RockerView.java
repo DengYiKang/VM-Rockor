@@ -320,7 +320,7 @@ public class RockerView extends View {
         double angle = radian2Angle(radian);
 
         // 回调 返回参数
-        callBack(angle, lenXY);
+        callBack(angle, lenXY, lenX, lenY);
 
         Logger.i(TAG, "getRockerPositionPoint: 角度 :" + angle);
         if (lenXY + rockerRadius <= regionRadius) { // 触摸位置在可活动范围内
@@ -400,10 +400,10 @@ public class RockerView extends View {
      * @param angle 摇动角度
      */
 
-    private void callBack(double angle, double length) {
+    private void callBack(double angle, double length, float x, float y) {
         if (null != mOnAngleChangeListener) {
             mOnAngleChangeListener.angle(angle);
-            mOnAngleChangeListener.location(length, angle);
+            mOnAngleChangeListener.location(x, y);
         }
         if (null != mOnShakeListener) {
             if (CallBackMode.CALL_BACK_MODE_MOVE == mCallBackMode) {
@@ -704,7 +704,7 @@ public class RockerView extends View {
          */
         void angle(double angle);
 
-        void location(double length, double angle);
+        void location(float x, float y);
 
         // 结束
         void onFinish();

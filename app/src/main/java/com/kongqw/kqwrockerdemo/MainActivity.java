@@ -15,10 +15,10 @@ import com.kongqw.rockerlibrary.view.RockerView;
 public class MainActivity extends Activity implements MediaPlayer.OnPreparedListener, MediaPlayer.OnErrorListener, MediaPlayer.OnCompletionListener {
 
 
-    private TextView angle_log_left;
+    private TextView x_log_left;
     private TextView diraction_log_left;
     private TextView diraction_log_right;
-    private TextView length_log_left;
+    private TextView y_log_left;
     private TextView length_log_right;
     private MyVideo videoView;
     private String PATH_URL = "http://192.168.1.254:8090/?action=stream";
@@ -54,10 +54,10 @@ public class MainActivity extends Activity implements MediaPlayer.OnPreparedList
     }
 
     public void Rocket() {
-        angle_log_left = (TextView) findViewById(R.id.angle_text_left);
+        x_log_left = (TextView) findViewById(R.id.x_text_left);
         diraction_log_left = (TextView) findViewById(R.id.diraction_text_left);
         diraction_log_right = (TextView) findViewById(R.id.diraction_text_right);
-        length_log_left = (TextView) findViewById(R.id.length_text_left);
+        y_log_left = (TextView) findViewById(R.id.y_text_left);
         length_log_right = (TextView) findViewById(R.id.length_text_right);
 
 
@@ -67,22 +67,23 @@ public class MainActivity extends Activity implements MediaPlayer.OnPreparedList
             rockerViewLeft.setOnAngleChangeListener(new RockerView.OnAngleChangeListener() {
                 @Override
                 public void onStart() {
-                    angle_log_left.setText(null);
+                    x_log_left.setText(null);
                 }
 
                 @Override
                 public void angle(double angle) {
-                    angle_log_left.setText("摇动角度 : " + angle);
                 }
 
                 @Override
-                public void location(double length, double angle) {
-                    MainActivity.this.length_log_left.setText("长度: " + length);
+                public void location(float x, float y) {
+                    y*=-1;
+                    x_log_left.setText("X： "+String.valueOf(x));
+                    y_log_left.setText("Y:  "+String.valueOf(y));
                 }
 
                 @Override
                 public void onFinish() {
-                    angle_log_left.setText(null);
+                    x_log_left.setText(null);
                 }
             });
             rockerViewLeft.setOnShakeListener(RockerView.DirectionMode.DIRECTION_8,
@@ -112,15 +113,12 @@ public class MainActivity extends Activity implements MediaPlayer.OnPreparedList
 
                 @Override
                 public void angle(double angle) {
-
                 }
 
                 @Override
-                public void location(double length, double angle) {
-                    double m_length = length;
-                    if(Math.abs(Math.sin(angle))!=0)
-                        m_length *= -1*Math.sin(angle)/Math.abs(Math.sin(angle));
-                    length_log_right.setText("长度： " + m_length);
+                public void location(float x, float y) {
+                    y*=-1;
+                    length_log_right.setText("长度： " + String.valueOf(y));
                 }
 
                 @Override
@@ -153,8 +151,6 @@ public class MainActivity extends Activity implements MediaPlayer.OnPreparedList
         setContentView(R.layout.activity_main);
         Rocket();
         initVideoView();
-
-
     }
 
     private String getDirection(RockerView.Direction direction) {

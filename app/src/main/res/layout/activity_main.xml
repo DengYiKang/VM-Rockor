@@ -31,7 +31,7 @@
 
 
         <TextView
-            android:id="@+id/angle_text_left"
+            android:id="@+id/x_text_left"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_above="@+id/rockerViewLeft"
@@ -43,12 +43,12 @@
             android:id="@+id/diraction_text_left"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_above="@id/angle_text_left"
+            android:layout_above="@id/x_text_left"
             android:layout_alignParentLeft="true"
             android:textColor="#FFFFFF" />
 
         <TextView
-            android:id="@+id/length_text_left"
+            android:id="@+id/y_text_left"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_above="@+id/diraction_text_left"
