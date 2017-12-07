@@ -278,6 +278,10 @@ public class RockerView extends View {
             case MotionEvent.ACTION_MOVE:// 移动
                 float moveX = event.getX();
                 float moveY = event.getY();
+                //模式为竖直滑动时，限制摇杆滑动
+                if (mDirectionMode==DirectionMode.DIRECTION_2_VERTICAL){
+                    moveX = mCenterPoint.x;
+                }
                 mRockerPosition = getRockerPositionPoint(mCenterPoint, new Point((int) moveX, (int) moveY), mAreaRadius, mRockerRadius);
                 moveRocker(mRockerPosition.x, mRockerPosition.y);
                 break;
@@ -399,7 +403,7 @@ public class RockerView extends View {
     private void callBack(double angle, double length) {
         if (null != mOnAngleChangeListener) {
             mOnAngleChangeListener.angle(angle);
-            mOnAngleChangeListener.location(length);
+            mOnAngleChangeListener.location(length, angle);
         }
         if (null != mOnShakeListener) {
             if (CallBackMode.CALL_BACK_MODE_MOVE == mCallBackMode) {
@@ -701,7 +705,7 @@ public class RockerView extends View {
          */
         void angle(double angle);
 
-        void location(double length);
+        void location(double length, double angle);
 
         // 结束
         void onFinish();

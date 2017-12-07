@@ -16,7 +16,7 @@
         android:layout_marginBottom="@dimen/activity_horizontal_margin">
 
         <com.kongqw.rockerlibrary.view.RockerView
-            android:id="@+id/rockerView"
+            android:id="@+id/rockerViewLeft"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignParentBottom="true"
@@ -28,39 +28,59 @@
             kongqw:rockerBackground="@mipmap/rocker"
             kongqw:rockerRadius="15dp" />
 
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/angle_text_left"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/rockerViewLeft"
+            android:layout_alignParentLeft="true"
+            android:textColor="#FFFFFF" />
+
+
+        <TextView
+            android:id="@+id/diraction_text_left"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_above="@id/angle_text_left"
+            android:layout_alignParentLeft="true"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/length_text_left"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/diraction_text_left"
+            android:layout_alignParentLeft="true"
+            android:textColor="#FFFFFF" />
+
+        <com.kongqw.rockerlibrary.view.RockerView
+            android:id="@+id/rockerViewRight"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginBottom="36dp"
-            android:textColor="#FFFFFF" />
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="16dp"
+            kongqw:areaBackground="@mipmap/button"
+            kongqw:rockerBackground="@mipmap/rocker"
+            kongqw:rockerRadius="15dp" />
 
 
         <TextView
-            android:id="@+id/angle_text"
+            android:id="@+id/diraction_text_right"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_above="@+id/rockerView"
-            android:layout_alignParentLeft="true"
-            android:textColor="#FFFFFF" />
-
-
-        <TextView
-            android:id="@+id/diraction_text"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_above="@id/angle_text"
-            android:layout_alignParentLeft="true"
+            android:layout_above="@id/rockerViewRight"
+            android:layout_alignParentRight="true"
             android:textColor="#FFFFFF" />
 
         <TextView
-            android:id="@+id/length_text"
+            android:id="@+id/length_text_right"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_above="@+id/diraction_text"
-            android:layout_alignParentLeft="true"
+            android:layout_above="@+id/diraction_text_right"
+            android:layout_alignParentRight="true"
             android:textColor="#FFFFFF" />
 
     </RelativeLayout>
