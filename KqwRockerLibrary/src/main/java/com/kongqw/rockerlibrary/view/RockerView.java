@@ -267,21 +267,21 @@ public class RockerView extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         //触摸点范围
-        if(Math.pow(Math.abs(event.getX()-mCenterPoint.x), 2) + Math.pow(Math.abs(event.getY()-mCenterPoint.y), 2)>160000){
+        if (Math.pow(Math.abs(event.getX() - mCenterPoint.x), 2) + Math.pow(Math.abs(event.getY() - mCenterPoint.y), 2) > 100000) {
             moveRocker(mCenterPoint.x, mCenterPoint.y);
             event.setLocation(mCenterPoint.x, mCenterPoint.y);
+        }
+        float moveX = event.getX();
+        float moveY = event.getY();
+        //模式为竖直滑动时，限制摇杆滑动
+        if (mDirectionMode == DirectionMode.DIRECTION_2_VERTICAL) {
+            moveX = mCenterPoint.x;
         }
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:// 按下
                 // 回调 开始
                 callBackStart();
             case MotionEvent.ACTION_MOVE:// 移动
-                float moveX = event.getX();
-                float moveY = event.getY();
-                //模式为竖直滑动时，限制摇杆滑动
-                if (mDirectionMode==DirectionMode.DIRECTION_2_VERTICAL){
-                    moveX = mCenterPoint.x;
-                }
                 mRockerPosition = getRockerPositionPoint(mCenterPoint, new Point((int) moveX, (int) moveY), mAreaRadius, mRockerRadius);
                 moveRocker(mRockerPosition.x, mRockerPosition.y);
                 break;
@@ -603,7 +603,6 @@ public class RockerView extends View {
             mOnShakeListener.onFinish();
         }
     }
-
 
 
     /**

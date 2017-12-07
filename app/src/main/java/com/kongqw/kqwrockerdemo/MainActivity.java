@@ -83,7 +83,6 @@ public class MainActivity extends Activity implements MediaPlayer.OnPreparedList
                 @Override
                 public void onFinish() {
                     angle_log_left.setText(null);
-                    length_log_left.setText(null);
                 }
             });
             rockerViewLeft.setOnShakeListener(RockerView.DirectionMode.DIRECTION_8,
@@ -118,13 +117,14 @@ public class MainActivity extends Activity implements MediaPlayer.OnPreparedList
 
                 @Override
                 public void location(double length, double angle) {
-                    double m_length = length * Math.sin(angle);
+                    double m_length = length;
+                    if(Math.abs(Math.sin(angle))!=0)
+                        m_length *= -1*Math.sin(angle)/Math.abs(Math.sin(angle));
                     length_log_right.setText("长度： " + m_length);
                 }
 
                 @Override
                 public void onFinish() {
-                    length_log_right.setText(null);
                 }
             });
             rockerViewRight.setOnShakeListener(RockerView.DirectionMode.DIRECTION_2_VERTICAL,
